@@ -7,7 +7,7 @@ name = "Holos"
 description.en = "Identity relay server for mobile Fediverse instances"
 description.fr = "Serveur relais d'identité pour instances mobiles Fediverse"
 
-version = "1.0~ynh1"
+version = "2026.06.20~ynh1"
 
 maintainers = [ ]
 
@@ -18,7 +18,7 @@ admindoc = "https://holos.social/how-it-works"
 code = "https://codeberg.org/tom79/Holos-Relay-Server"
 
 [integration]
-yunohost = ">= 12.1.38"
+yunohost = ">= 12.1.40"
 helpers_version = "2.1"
 architectures = "all"
 multi_instance = true
@@ -26,9 +26,9 @@ multi_instance = true
 ldap = false
 sso = false
 
-disk = "50M"
-ram.build = "50M"
-ram.runtime = "50M"
+disk = "700M"
+ram.build = "700M"
+ram.runtime = "300M"
 
 [install]
     [install.domain]
@@ -41,24 +41,18 @@ ram.runtime = "50M"
     [install.admin]
     type = "user"
 
-    [install.password]
-    type = "password"
-
 [resources]
 
     [resources.sources]
 
     [resources.sources.main]
-    url = "https://codeberg.org/tom79/Holos-Relay-Server/archive/befe9e6e7bb338e28509d3a432127c8cd497c37d.tar.gz"
-    sha256 = "194392304cc62b07d196a662de7df5ec0e1a22fece99ecb8113e2b8856972abd"
-
-    autoupdate.strategy = "latest_github_commit"
+    url = "https://codeberg.org/tom79/Holos-Relay-Server/archive/445c75c6792112213d9760453bdf0e8b5d460b14.tar.gz"
+    sha256 = "2082ab30acfd8f79903299e7bd14cf4fe2cdb4c2cba9a68e423fa5c5850410cf"
+    autoupdate.strategy = "latest_forgejo_commit"
 
     [resources.system_user]
 
     [resources.install_dir]
-
-    #[resources.data_dir]
 
     [resources.permissions]
     main.url = "/"
@@ -73,4 +67,4 @@ ram.runtime = "50M"
     type = "postgresql"
 
     [resources.nodejs]
-    version = "22"
+    version = "24"
